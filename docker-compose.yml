@@ -1,0 +1,26 @@
+version: "2.24.6"
+services:
+  mon_application:
+    image: website:latest
+    container_name: website1
+    ports:
+      - "4000:80"
+    networks:  
+      - UniproEtude2024
+    volumes:
+      - volume_website:/c/Users/DELL/Desktop/Dossiers/Dossier_Ramadan
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    networks:
+      - UniproEtude2024
+    volumes:
+      - volume_website:/usr/share/nginx/html
+
+networks:
+  UniproEtude2024:
+    
+volumes:
+  volume_website:
